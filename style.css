@@ -25,14 +25,13 @@ body {
   width: 100%;
 }
 
-
 /* NAV CONTAINER */
 .navv {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 5%;
-  background: linear-gradient(90deg, #ffbf009f, #FF9300);
+  background: linear-gradient(90deg, #ffbf009f, #ff9300);
   position: relative;
 }
 
@@ -100,7 +99,7 @@ body {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #FF9300;
+    background-color: #ff9300;
     flex-direction: column;
     width: 100%;
     max-height: 0;
@@ -112,7 +111,6 @@ body {
     max-height: 300px;
   }
 }
-
 
 /* Estilos base */
 header {
@@ -207,12 +205,12 @@ header {
 }
 
 .carousel-nav input[type="radio"]:checked {
-  background-color: #FF9300;
+  background-color: #ff9300;
   border-color: #ffffff;
 }
 
 .carousel-nav input[type="radio"]:hover {
-  background-color: #FF9300;
+  background-color: #ff9300;
   transform: scale(1.2);
 }
 
@@ -390,34 +388,55 @@ header {
   }
 
   .conteudo-slide {
-    position: static;
-    transform: none;
-    background: linear-gradient(to top,
-        rgba(0, 0, 0, 0.8) 0%,
-        rgba(0, 0, 0, 0.4) 50%,
-        transparent 100%);
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    background: none;
     padding: 2rem 1.5rem;
-    margin-top: -30%;
+    margin-top: 0;
+    width: min(92%, 640px);
     max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
   }
 
   .conteudo-slide.alinha-direita,
   .conteudo-slide.alinha-esquerda {
-    position: static;
-    left: auto;
+    left: 50%;
+    margin-top: 20%;
     right: auto;
+    text-align: center;
+  }
+
+  /* Melhora a leitura sem o bloco escuro */
+  .carousel h2,
+  .paragraph {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+
+  .conteudo-slide.alinha-direita,
+  .conteudo-slide.alinha-esquerda {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
     text-align: center;
   }
 
   .carousel h2 {
     font-size: clamp(1.3rem, 6vw, 2rem);
     margin-bottom: 0.8rem;
+    text-align: center;
   }
 
   .paragraph {
     font-size: clamp(0.85rem, 3vw, 1rem);
     margin: 0.8rem 0;
+    text-align: center;
   }
 
   .paragraph br {
@@ -463,8 +482,16 @@ header {
   }
 
   .conteudo-slide {
-    padding: 1.5rem 1rem;
-    margin-top: -25%;
+    padding: 1.1rem 1rem;
+    margin-top: 0;
+    background: none;
+    width: 92%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 65%;
+    transform: translateY(-50%);
   }
 
   .carousel h2 {
@@ -554,7 +581,6 @@ header {
 
   .carousel h2 {
     font-size: clamp(1.5rem, 3vw, 3.5rem);
-
   }
 
   .paragraph {
@@ -567,7 +593,7 @@ header {
   }
 }
 
-/* Modo paisagem em dispositivos móveis  COMPUTADOR ESSE*/ 
+/* Modo paisagem em dispositivos móveis  COMPUTADOR ESSE*/
 @media (max-height: 500px) and (orientation: landscape) {
   .carousel {
     height: 10vh;
@@ -673,8 +699,20 @@ header {
   opacity: 1;
 }
 
-
-
+/* Evita efeitos de hover em dispositivos touch */
+@media (hover: none) {
+  .botao-whatsapp-flutuante:hover {
+    width: 60px;
+    border-radius: 50%;
+    justify-content: flex-end;
+  }
+  .botao-whatsapp-flutuante:hover .texto-hover {
+    opacity: 0;
+  }
+  .texto-hover {
+    display: none;
+  }
+}
 
 .podetudo {
   text-align: center;
@@ -685,7 +723,7 @@ header {
 
 .podetudo h2 {
   color: #001444;
-  font-size: 32px;
+  font-size: clamp(1.25rem, 5vw, 2rem);
   margin-bottom: 50px;
 }
 
@@ -697,7 +735,7 @@ header {
 }
 
 .card {
-  background-color: #F0F0F4;
+  background-color: #f0f0f4;
   border-radius: 16px;
   width: 280px;
   padding: 40px 20px 20px;
@@ -713,7 +751,7 @@ header {
 .icon-circle {
   width: 64px;
   height: 64px;
-  background: linear-gradient(180deg, #FFC107, #CE6B01);
+  background: linear-gradient(180deg, #ffc107, #ce6b01);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -732,7 +770,7 @@ header {
 .card hr {
   width: 30px;
   height: 3px;
-  background: #FFC107;
+  background: #ffc107;
   border: none;
   margin: 20px auto;
 }
@@ -749,8 +787,6 @@ header {
   }
 }
 
-
-
 h2 {
   text-align: center;
   font-weight: 700;
@@ -758,10 +794,6 @@ h2 {
   margin-bottom: 13px;
   color: #001444;
 }
-
-
-
-
 
 .hero {
   background: #fef7e0;
@@ -787,7 +819,6 @@ h2 {
   /* Espaço entre os itens */
 }
 
-
 .hero-left .pretitle {
   font-size: 18px;
   color: #fdbf31;
@@ -802,9 +833,7 @@ h2 {
   color: #c17700;
   margin: 0;
   padding: 0;
-
 }
-
 
 .hero-left h1 {
   font-size: 30px;
@@ -813,7 +842,6 @@ h2 {
   margin: 0;
   padding: 0;
   line-height: 1.2;
-
 }
 
 .hero-left span {
@@ -824,7 +852,6 @@ h2 {
 /* Estilos da coluna direita */
 .hero-right p {
   font-size: 15px;
-  ;
   align-items: flex-end;
 
   color: #333;
@@ -842,16 +869,12 @@ h2 {
   .hero-left {
     flex: 1;
     padding-right: 2rem;
-
   }
 
   .hero-right {
     flex: 1;
   }
 }
-
-
-
 
 #box {
   display: flex;
@@ -908,7 +931,7 @@ h2 {
 }
 
 .texto-sobre {
-  font-family: 'Arial', Helvetica, sans-serif;
+  font-family: "Arial", Helvetica, sans-serif;
   position: absolute;
   width: 150px;
   top: 50%;
@@ -967,6 +990,10 @@ h2 {
 }
 
 @media (max-width: 480px) {
+  .podetudo h2 {
+    margin-bottom: 24px;
+    font-size: clamp(1.1rem, 5.5vw, 1.4rem);
+  }
   .internet-para {
     margin: 0 15px;
     padding: 15px 5px;
@@ -994,10 +1021,8 @@ h2 {
   }
 }
 
-
-
 .vantagens {
-  background: url('img/fundo.png') center/cover no-repeat;
+  background: url("img/fundo.png") center/cover no-repeat;
   padding: 60px 30px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -1010,7 +1035,6 @@ h2 {
   gap: 40px;
   flex-wrap: wrap;
   position: relative;
-
 }
 
 .vantagens .img-pessoa {
@@ -1029,7 +1053,8 @@ h2 {
   font-size: 46px;
   color: #001444;
   margin-bottom: 40px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .vantagens .icones {
@@ -1055,7 +1080,8 @@ h2 {
   color: #5f4521;
   line-height: 1.4;
   font-weight: 500;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .vantagens .botao {
@@ -1073,9 +1099,6 @@ h2 {
 .vantagens .botao:hover {
   background-color: #e57e00;
 }
-
-
-
 
 .pricing-container {
   display: flex;
@@ -1107,7 +1130,7 @@ h2 {
 }
 
 .plan-header {
-  background-color: #FF9300;
+  background-color: #ff9300;
   width: 100%;
   border-radius: 50px 50px 0 0;
   color: white;
@@ -1123,7 +1146,7 @@ h2 {
   font-weight: 900;
   margin: 1px 0 5px;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .price-container {
@@ -1152,7 +1175,7 @@ h2 {
 }
 
 .price-container .valor::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -1211,7 +1234,7 @@ h2 {
 }
 
 .btn {
-  background-color: #FF9300;
+  background-color: #ff9300;
   border: none;
   border-radius: 30px;
   padding: 10px 35px;
@@ -1369,10 +1392,8 @@ h2 {
   }
 }
 
-
-
 .campanha-indicacao {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   color: #1e1e1e;
 }
 
@@ -1449,14 +1470,13 @@ h2 {
 }
 
 .texto-convite button:hover {
-  background-color: #CE6B01;
+  background-color: #ce6b01;
   color: white;
   border-color: transparent;
 }
 
 .texto-convite button img {
   width: 20px;
-
 }
 
 .texto-convite a {
@@ -1464,6 +1484,10 @@ h2 {
 }
 
 @media (max-width: 768px) {
+  .backgroundorange {
+    height: auto;
+    padding: 40px 20px;
+  }
   .container-convite {
     flex-direction: column;
     text-align: center;
@@ -1505,7 +1529,7 @@ h2 {
 }
 
 .cardp {
-  background-color: #F0F0F4;
+  background-color: #f0f0f4;
   border-radius: 16px;
   width: 280px;
   padding: 40px 20px 20px;
@@ -1534,7 +1558,7 @@ h2 {
 .icon-circle {
   width: 62px;
   height: 64px;
-  background: linear-gradient(180deg, #FFC107, #CE6B01);
+  background: linear-gradient(180deg, #ffc107, #ce6b01);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1553,7 +1577,7 @@ h2 {
 .cardp hr {
   width: 30px;
   height: 3px;
-  background: #FFC107;
+  background: #ffc107;
   border: none;
   margin: 20px auto;
 }
@@ -1570,7 +1594,6 @@ h2 {
   }
 }
 
-
 /* Topo da seção */
 .topo {
   display: flex;
@@ -1581,7 +1604,6 @@ h2 {
   margin-bottom: 60px;
   padding: 40px 5%;
 }
-
 
 .topo .mensagem {
   flex: 1;
@@ -1604,7 +1626,6 @@ h2 {
   font-size: 20px;
   padding-top: 30px;
   color: #555;
-
 }
 
 .topo .mensagem .promoção {
@@ -1617,7 +1638,6 @@ h2 {
   font-size: 15px;
   color: #1e1e1e;
 }
-
 
 .topo .imagem img {
   max-width: 490px;
@@ -1643,8 +1663,6 @@ h2 {
   color: #001444;
 }
 
-
-
 @media (max-width: 768px) {
   .topo {
     flex-direction: column;
@@ -1663,6 +1681,20 @@ h2 {
 
 /* Ajustes para telas menores que 480px */
 @media (max-width: 480px) {
+  .botao-whatsapp-flutuante {
+    width: 52px;
+    height: 52px;
+    bottom: 12px;
+    right: 12px;
+  }
+  .icone-whatsapp {
+    width: 52px;
+    height: 52px;
+  }
+  .botao-whatsapp-flutuante img {
+    width: 30px;
+    height: 30px;
+  }
   .backgroundorange {
     height: auto;
     /* deixa a altura automática */
@@ -1764,24 +1796,16 @@ h2 {
   }
 }
 
-
-
-
-
 footer {
   background-color: #ff9500d8;
   font-family: "Figtree", sans-serif;
-  background-image:
-    repeating-linear-gradient(40deg,
-      /* ângulo da linha */
-      #00144410,
-      /* cor da linha (com opacidade) */
-      #0014440a 45px,
-      /* espessura da linha */
-      transparent 2px,
-      transparent 30px
-      /* espaçamento entre as linhas */
-    );
+  background-image: repeating-linear-gradient(
+    40deg,
+    /* ângulo da linha */ #00144410,
+    /* cor da linha (com opacidade) */ #0014440a 45px,
+    /* espessura da linha */ transparent 2px,
+    transparent 30px /* espaçamento entre as linhas */
+  );
 
   color: #ffffff;
   font-size: 14px;
@@ -1818,7 +1842,6 @@ footer a {
 .footer-logo img {
   height: 150px;
 }
-
 
 .footer-middle {
   display: flex;
@@ -1871,12 +1894,9 @@ h4 {
   margin-bottom: 10px;
 }
 
-
-
 .footer-address {
   flex: 2;
   max-width: 400px;
-
 }
 
 .footer-address p {
@@ -1911,7 +1931,6 @@ h4 {
   height: 1px;
   background-color: white;
 }
-
 
 @media (max-width: 768px) {
   .principal-box {
@@ -1948,7 +1967,6 @@ h4 {
   .footer-col {
     text-align: left;
   }
-
 
   .footer-address {
     max-width: 100%;
