@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: #ffffff;
+}
+
+
+/* NAV CONTAINER */
+.navv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: linear-gradient(90deg, #ffbf009f, #FF9300);
+    position: relative;
+}
+
+/* LOGO */
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white;
+}
+
+.logo span {
+    color: #ffc107;
+}
+
+/* NAV LINKS */
+.nav-itens {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-itens a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-itens a::after {
+    content: "";
+    display: block;
+    height: 1.5px;
+    width: 0;
+    background: #001444;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav-itens a:hover {
+    color: #001444;
+}
+
+.nav-itens a:hover::after {
+    width: 100%;
+}
+
+/* MENU TOGGLE - escondido em telas grandes */
+.menu-toggle {
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-itens {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #FF9300;
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-itens.active {
+        max-height: 300px;
+        /* altura suficiente para mostrar os links */
+    }
+
+    .nav-itens li {
+        text-align: center;
+        padding: 15px 0;
+    }
+}
+
+header {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+}
+
+.carousel-item img {
+    display: block;
+    width: 100%;
+    height: 300px;
+}
+
+.texto-sobreposto {
+    position: absolute;
+    top: 50%;
+    /* Posiciona no meio verticalmente */
+    left: 40px;
+    /* Distância da esquerda */
+    transform: translateY(-50%);
+    /* Ajusta para centralizar perfeitamente */
+    color: white;
+    /* Cor do texto */
+    max-width: 40%;
+    /* Limita a largura do texto */
+    padding: 20px;
+    box-sizing: border-box;
+    /* Garante que o padding não aumente a largura */
+}
+
+/* Estilos para o texto */
+.texto-sobreposto h1 {
+    font-family: Arial, Helvetica, sans-serif ;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.texto-sobreposto p {
+    font-size: 1.2em;
+}
+
+
+.botao-whatsapp-flutuante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  width: 60px;
+  height: 60px;
+  background-color: #14bd52;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden; 
+  transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out; 
+  text-decoration: none;
+  z-index: 1000; /* Garante que o botão fique na frente de outros elementos */
+}
+
+/* Estado do botão quando o mouse está sobre ele */
+.botao-whatsapp-flutuante:hover {
+  width: 220px;
+  border-radius: 30px; 
+  justify-content: space-between;
+}
+
+.icone-whatsapp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  /* Garante que o ícone esteja sempre na frente */
+  z-index: 2; 
+}
+
+.botao-whatsapp-flutuante img {
+  width: 36px;
+  height: 36px;
+  display: block; 
+}
+
+.texto-hover {
+  color: white;
+  font-family: sans-serif;
+  font-size: 18px;
+  padding-left: 20px; 
+  display: flex;
+  align-items: center;
+  height: 60px;
+  opacity: 0;
+  white-space: nowrap; 
+  transition: opacity 0.4s ease-in-out;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
+.botao-whatsapp-flutuante:hover .texto-hover {
+  opacity: 1;
+}
+
+
+
+/* Estilo para a seção principal */
+.secao-proposito {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+/* Estilo para o bloco de texto */
+.texto-proposito {
+    flex: 1;
+    max-width: 600px;
+}
+
+.texto-proposito h2 {
+    font-size: 30px;
+    color: #001f40;
+    margin-bottom: 20px;
+}
+
+.texto-proposito p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Estilo do contêiner da imagem com gradiente */
+.imagem-proposito {
+    /* Largura corrigida para ocupar o espaço necessário */
+    width: 450px; 
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+}
+
+.imagem-proposito img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Estilo corrigido para a seção principal com fundo 100% */
+.secao-familias {
+    background-color: aliceblue;
+    /* Remover max-width para que o fundo ocupe 100% */
+    /* width: 100%; não precisa, pois é o padrão de elementos de bloco */
+    padding: 80px 20px;
+}
+
+/* Criar um contêiner interno para centralizar o conteúdo */
+.secao-familias .container-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o conteúdo dentro da seção */
+}
+
+
+/* Estilo da imagem, com largura e margens */
+.imagem-familia{
+    width: 500px; 
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+}
+.imagem-familia img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 40px;
+}
+
+/* Mídia query para telas menores */
+@media (max-width: 768px) {
+    .secao-proposito {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .imagem-proposito {
+        width: 100%;
+    }
+    .imagem-familia{
+        width: 100%;
+    }
+    .secao-familias .container-flex {
+        flex-direction: column; /* Empilha o conteúdo em telas pequenas */
+        gap: 30px;
+    }
+}
+
+
+
+
+footer {
+  background-color: #ff9500d8;
+  font-family: "Figtree", sans-serif ;
+  background-image:
+    repeating-linear-gradient(
+      40deg,               /* ângulo da linha */
+      #00144410,           /* cor da linha (com opacidade) */
+      #0014440a 45px,       /* espessura da linha */
+      transparent 2px,
+      transparent 30px     /* espaçamento entre as linhas */
+    );
+
+  color: #ffffff;
+  font-size: 14px;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+}
+.footer-details{
+  padding: 4px;
+  background-color: #001444;
+  margin-bottom: 90px;
+}
+
+.principal-box {
+  display: flex;
+  gap: 80px; /* Espaço entre colunas */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.footer-logo {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo img {
+  height: 150px;
+}
+
+
+.footer-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;
+}
+.top-links {
+  display: flex;
+  gap: 40px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.img-footer-redes{
+  display: flex;
+  height: 25px;
+  display: inline-block;
+  padding-right: 15px;
+  margin-top: 5px;
+}
+
+h4{
+  font-size: 18px;
+  color: #001444;
+  margin-bottom: 5px;
+}
+.duvida{
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+
+.img-footer {
+  width: 18px;
+  height: auto;
+}
+
+.informacoes {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre ícone e texto */
+  margin-bottom: 10px;
+}
+
+
+
+.footer-address {
+   flex: 2;
+  max-width: 400px;
+ 
+}
+.footer-address p{
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+.desenvolvido{
+background-color: #e57e00a1;
+height: 100px;
+text-align: center;
+padding: 30px;
+font-size: 13px;
+line-height: 1.6;
+font-weight: 300;
+font-family: "Figtree", sans-serif ;
+}
+
+.desenvolvido  span{
+  font-weight: 600;
+}
+.whitee{
+width: 100%;
+height: 1px;
+background-color: white;
+}

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netprimer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="img/logonetprimer.png"
+      type="image/x-icon"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wdth,wght@0,6..12,97.8,200..1000;1,6..12,97.8,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+  </head>
+  <body>
+   <nav class="navv">
+      <div class="logo">NET<span>PRIMER</span></div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <ul class="nav-itens" id="nav-itens">
+        <li><a href="#">INÍCIO</a></li>
+        <li><a href="#plan">PLANOS</a></li>
+        <li><a href="sobre.html">SOBRE NÓS</a></li>
+        <li><a href="#contato">CONTATO</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-item active">
+            <img src="img/slideplay.png" alt="Imagem 1" />
+            <div class="conteudo-slide alinha-direita">
+              <h2 class="h2tex animacao-texto">
+                DIVERSÃO SEM LIMITES <br />
+                PARA TODA A FAMÍLIA.
+              </h2>
+              <p class="paragraph animacao-texto" style="animation-delay: 0.3s">
+                Com a nossa internet, lag é coisa do passado! <br />Conexão
+                estável e rápida para jogadores competitivos.
+              </p>
+              <a
+                href="#plan"
+                class="btn-carousel animacao-texto"
+                style="animation-delay: 0.6s"
+                >Ver Planos</a
+              >
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/slidefriend.png" alt="Imagem 2" />
+            <div class="conteudo-slide alinha-esquerda">
+              <h2 class="h2texti animacao-texto">
+                RECEBEU ESSA <br />MENSAGEM? ENTÃO VEM!
+              </h2>
+              <p class="paragraph animacao-texto" style="animation-delay: 0.3s">
+                Se um amigo recomendou, é porque ele já sabe que aqui a
+                <br />internet é rápida de verdade. Venha descobrir você também!
+              </p>
+              <a
+                href="#plan"
+                class="btn-carousel animacao-texto"
+                style="animation-delay: 0.6s"
+                >Ver Planos</a
+              >
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/slidework.png" alt="Imagem 3" />
+            <div class="conteudo-slide alinha-direita">
+              <h2 class="h2tex animacao-texto">
+                PRODUTIVIDADE COMEÇA <br />COM BOA CONEXÃO!
+              </h2>
+              <p class="paragraph animacao-texto" style="animation-delay: 0.3s">
+                Sua produtividade não pode parar! Tenha reuniões estáveis,
+                <br />
+                envie arquivos sem demora e mantenha o foco total.
+              </p>
+              <a
+                href="#plan"
+                class="btn-carousel animacao-texto"
+                style="animation-delay: 0.6s"
+                >Ver Planos</a
+              >
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/slidemusic.png" alt="Imagem 4" />
+            <div class="conteudo-slide alinha-esquerda">
+              <h2 class="h2texti animacao-texto">
+                A INTERNET QUE<br />TOCA NO SEU RITMO!
+              </h2>
+              <p class="paragraph animacao-texto" style="animation-delay: 0.3s">
+                Com a nossa internet, você curte músicas, vídeos <br />
+                e muito mais com qualidade e velocidade de verdade.
+              </p>
+              <a
+                href="#plan"
+                class="btn-carousel animacao-texto"
+                style="animation-delay: 0.6s"
+                >Ver Planos</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-button prev">&#10094;</button>
+        <button class="carousel-button next">&#10095;</button>
+        <div class="carousel-nav">
+          <label
+            ><input
+              type="radio"
+              name="carousel-dot"
+              data-index="0"
+              checked
+          /></label>
+          <label
+            ><input type="radio" name="carousel-dot" data-index="1"
+          /></label>
+          <label
+            ><input type="radio" name="carousel-dot" data-index="2"
+          /></label>
+          <label
+            ><input type="radio" name="carousel-dot" data-index="3"
+          /></label>
+        </div>
+      </div>
+    </header>
+
+    <a
+      href="https://wa.me/5511997047052"
+      class="botao-whatsapp-flutuante"
+      target="_blank"
+    >
+      <div class="icone-whatsapp">
+        <img src="img/whatsapp.png" alt="Ícone do WhatsApp" />
+      </div>
+      <div class="texto-hover">
+        <span>Entre em contato!</span>
+      </div>
+    </a>
+
+    <section class="podetudo">
+      <h2 class="h2-plan">
+        Com a internet fibra óptica <br />Netprimer você pode tudo!
+      </h2>
+      <div class="cards">
+        <div class="card">
+          <div class="icon-circle">
+            <img src="img/wifi-branco.png" alt="Ícone fibra óptica" />
+          </div>
+          <hr />
+          <p>Internet fibra óptica conectando você com qualidade.</p>
+        </div>
+        <div class="card">
+          <div class="icon-circle">
+            <img src="img/speed-branco.png" alt="Ícone aplicativos" />
+          </div>
+          <hr />
+          <p>Chega de lentidão, <br />descubra o poder da alta velocidade!</p>
+        </div>
+        <div class="card">
+          <div class="icon-circle">
+            <img
+              src="img/suporte-brancot.png"
+              alt="ícone atendimento"
+              height="60px"
+            />
+          </div>
+          <hr />
+          <p>Nossa equipe técnica está sempre pronta para oferecer suporte.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero">
+      <div class="hero-left">
+        <p class="pretitle">Internet</p>
+        <h2 class="highlighted">Fibra Óptica de verdade?</h2>
+        <h1>Só na <span>NETPRIMER!</span></h1>
+      </div>
+      <div class="hero-right">
+        <p>
+          Conectamos você com a melhor internet de fibra óptica em São Paulo —
+          velocidade, estabilidade e qualidade para o seu dia a dia!
+        </p>
+      </div>
+    </section>
+
+    <section class="internet-para">
+      <h2>A internet ideal para todos os momentos!</h2>
+      <div id="box">
+        <div class="imag">
+          <img
+            class="img-filme"
+            src="img/internetfilme.png"
+            alt="filmes e series"
+            width="172px"
+            height="310px"
+          />
+          <p class="texto-sobre">INTERNET PARA FILMES E SÉRIES</p>
+        </div>
+
+        <div class="imag">
+          <img
+            class="img-filme"
+            src="img/internetparajogar.png"
+            alt="filmes e series"
+            width="172px"
+            height="310px"
+          />
+          <p class="texto-sobre">INTERNET PARA JOGAR</p>
+        </div>
+        <div class="imag">
+          <img
+            class="img-filme"
+            src="img/internetparatrabalhar.png"
+            alt="filmes e series"
+            width="172px"
+            height="310px"
+          />
+          <p class="texto-sobre">INTERNET PARA TRABALHAR</p>
+        </div>
+        <div class="imag">
+          <img
+            class="img-filme"
+            src="img/internetcasa.png"
+            alt="filmes e series"
+            width="172px"
+            height="310px"
+          />
+          <p class="texto-sobre">INTERNET PARA SUA CASA</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="vantagens">
+      <div class="conteudo">
+        <img src="img/pulando.png" alt="pessoa pulando" class="img-pessoa" />
+
+        <div class="info">
+          <h2>Nossas vantagens</h2>
+
+          <div class="icones">
+            <div class="item">
+              <img src="img/wificolor.png" alt="Wi-Fi" />
+              <p>Instalação rápida e suporte completo para sua rede Wi-Fi.</p>
+            </div>
+            <div class="item">
+              <img src="img/fast.png" alt="Suporte" height="80px" />
+              <p>Suporte ágil para resolver qualquer problema.</p>
+            </div>
+            <div class="item">
+              <img src="img/video.png" alt="Vídeos" />
+              <p>Assista vídeos, filmes e faça downloads sem limites.</p>
+            </div>
+          </div>
+
+          <a href="https://wa.me/5511997047052" class="botao">Saiba mais!</a>
+        </div>
+      </div>
+    </section>
+
+    <main id="plan">
+      <h2 class="h2-plan">
+        Escolha o melhor plano de Internet Fibra Óptica: <br />ultra velocidade
+        feita para você!
+      </h2>
+
+      <div class="pricing-container">
+        <div class="plan">
+          <div class="plan-header">
+            Fibra Óptica Poderosa!
+            <div class="plan-speed">100 MEGA</div>
+          </div>
+          <div class="price-container">
+            <span class="money">R$</span>
+            <div class="valor">69</div>
+            <div class="centavos-container">
+              <span class="centavos">,99*</span>
+              <span class="mensal">/Mensal</span>
+            </div>
+          </div>
+          <div class="plan-details">
+            <ul>
+              <li>
+                <img src="img/internet.png" alt="fibra" width="25px" /> 100%
+                Fibra Óptica
+              </li>
+              <li>
+                <img src="img/speedometerp.png" alt="velocidade" width="25px" />
+                Sem limite de velocidade
+              </li>
+              <li>
+                <img src="img/wifi.png" alt="wi-fi" width="25px" />Wi-Fi Grátis
+              </li>
+              <li>
+                <img src="img/console.png" alt="video-game" width="25px" />
+                Navegue com até 100 Mega de download
+              </li>
+              <li>
+                <img
+                  src="img/estabilidade.png"
+                  alt="estabilidade"
+                  width="25px"
+                />
+                Estabilidade e segurança em cada conexão
+              </li>
+            </ul>
+          </div>
+          <button class="btn">
+            <a href="https://wa.me/5511997047052" target="_blank"
+              >Saiba mais!</a
+            >
+          </button>
+        </div>
+
+        <div class="plan">
+          <div class="plan-header">
+            Fibra Óptica Poderosa!
+            <div class="plan-speed">150 MEGA</div>
+          </div>
+          <div class="price-container">
+            <span class="money">R$</span>
+            <div class="valor">99</div>
+            <div class="centavos-container">
+              <span class="centavos">,99*</span>
+              <span class="mensal">/Mensal</span>
+            </div>
+          </div>
+          <div class="plan-details">
+            <ul>
+              <li>
+                <img src="img/internet.png" alt="fibra" width="25px" /> 100%
+                Fibra Óptica
+              </li>
+              <li>
+                <img src="img/speedometerp.png" alt="velocidade" width="25px" />
+                Sem limite de velocidade
+              </li>
+              <li>
+                <img src="img/wifi.png" alt="wi-fi" width="25px" />Wi-Fi Grátis
+              </li>
+              <li>
+                <img src="img/console.png" alt="video-game" width="25px" />
+                Navegue com até 150 Mega de download
+              </li>
+              <li>
+                <img
+                  src="img/estabilidade.png"
+                  alt="estabilidade"
+                  width="25px"
+                />
+                Estabilidade e segurança em cada conexão
+              </li>
+            </ul>
+          </div>
+          <button class="btn">
+            <a href="https://wa.me/5511997047052" target="_blank"
+              >Saiba mais!</a
+            >
+          </button>
+        </div>
+
+        <div class="plan">
+          <div class="plan-header">
+            Fibra Óptica Poderosa!
+            <div class="plan-speed">250 MEGA</div>
+          </div>
+          <div class="price-container">
+            <span class="money">R$</span>
+            <div class="valor">129</div>
+            <div class="centavos-container">
+              <span class="centavos">,99*</span>
+              <span class="mensal">/Mensal</span>
+            </div>
+          </div>
+          <div class="plan-details">
+            <ul>
+              <li>
+                <img src="img/internet.png" alt="fibra" width="25px" /> 100%
+                Fibra Óptica
+              </li>
+              <li>
+                <img src="img/speedometerp.png" alt="velocidade" width="25px" />
+                Sem limite de velocidade
+              </li>
+              <li>
+                <img src="img/wifi.png" alt="wi-fi" width="25px" />Wi-Fi Grátis
+              </li>
+              <li>
+                <img src="img/console.png" alt="video-game" width="25px" />
+                Navegue com até 250 Mega de download
+              </li>
+              <li>
+                <img
+                  src="img/estabilidade.png"
+                  alt="estabilidade"
+                  width="25px"
+                />
+                Estabilidade e segurança em cada conexão
+              </li>
+            </ul>
+          </div>
+          <button class="btn">
+            <a href="https://wa.me/5511997047052" target="_blank"
+              >Saiba mais!</a
+            >
+          </button>
+        </div>
+
+        <div class="plan">
+          <div class="plan-header">
+            Fibra Óptica Poderosa!
+            <div class="plan-speed">350 MEGA</div>
+          </div>
+          <div class="price-container">
+            <span class="money">R$</span>
+            <div class="valor">149</div>
+            <div class="centavos-container">
+              <span class="centavos">,99*</span>
+              <span class="mensal">/Mensal</span>
+            </div>
+          </div>
+          <div class="plan-details">
+            <ul>
+              <li>
+                <img src="img/internet.png" alt="fibra" width="25px" /> 100%
+                Fibra Óptica
+              </li>
+              <li>
+                <img src="img/speedometerp.png" alt="velocidade" width="25px" />
+                Sem limite de velocidade
+              </li>
+              <li>
+                <img src="img/wifi.png" alt="wi-fi" width="25px" />Wi-Fi Grátis
+              </li>
+              <li>
+                <img src="img/console.png" alt="video-game" width="25px" />
+                Navegue com até 350 Mega de download
+              </li>
+              <li>
+                <img
+                  src="img/estabilidade.png"
+                  alt="estabilidade"
+                  width="25px"
+                />
+                Estabilidade e segurança em cada conexão
+              </li>
+            </ul>
+          </div>
+          <button class="btn">
+            <a href="https://wa.me/5511997047052" target="_blank"
+              >Saiba mais!</a
+            >
+          </button>
+        </div>
+      </div>
+      <p class="plan-finish">
+        Após o vencimento, os valores estão sujeitos a alterações.
+      </p>
+    </main>
+
+    <section class="campanha-indicacao">
+      <div class="backgroundorange">
+        <div class="container-convite">
+          <div class="imagem-amigos">
+            <img src="img/amigossorrindo.png" alt="amigos sorrindo" />
+          </div>
+          <div class="texto-convite">
+            <h2>É desconto que você quer?</h2>
+            <p>
+              Ao fazer uma indicação para a Netprimer, você<br />
+              ganha <strong>100% de desconto</strong> na próxima mensalidade.
+            </p>
+            <a href="https://wa.me/5511997047052" target="_blank">
+              <button>
+                <img src="img/whatsapp.png" alt="Logo WhatsApp" width="20px" />
+                Indique pelo WhatsApp
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bloco-sobreposto">
+        <h2>Indique e ganhe: veja como funciona!</h2>
+        <div class="cardsp">
+          <div class="cardp">
+            <div class="icon-circle">
+              <img src="img/friends.png" alt="Ícone amigos" />
+            </div>
+            <hr />
+            <h3>Indique um amigo</h3>
+            <p>
+              Traga seus amigos para a melhor internet e ganhe descontos
+              exclusivos.
+            </p>
+          </div>
+          <div class="cardp">
+            <div class="icon-circle">
+              <img src="img/telephone.png" alt="Ícone telefone" />
+            </div>
+            <hr />
+            <h3>Entramos em contato com eles</h3>
+            <p>Se o seu amigo contratar um plano Netprimer...</p>
+          </div>
+          <div class="cardp">
+            <div class="icon-circle">
+              <img
+                class="img-people"
+                src="img/resume.png"
+                alt="ícone amigo assinando"
+              />
+            </div>
+            <hr />
+            <h3>Quando seus amigos assinar</h3>
+            <p>
+              Confirmamos os dados com eles para seguir com o processo de
+              instalação.
+            </p>
+          </div>
+          <div class="cardp">
+            <div class="icon-circle">
+              <img src="img/preferences.png" alt="Ícone verificado" />
+            </div>
+            <hr />
+            <h3>Seu amigo instalou, vocês ganham!</h3>
+            <p>Você ganha 100% de desconto na mensalidade dasua internet.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="topo">
+        <div class="mensagem">
+          <h1>
+            Indique amigos e ganhe<br /><span
+              >100% de desconto <br />
+              na mensalidade!</span
+            >
+          </h1>
+          <p>
+            Participar é fácil: indique um amigo! Conhece alguém que ainda não é
+            Netprimer? Traga para cá e ganhe descontos. Quanto mais amigos você
+            indicar, mais você economiza!
+          </p>
+          <p class="promoção">
+            Confira o regulamento da promoção
+            <a href="https://wa.me/5511997047052" target="_blank"
+              >clicando aqui.</a
+            >
+          </p>
+        </div>
+
+        <div class="imagem">
+          <img src="img/amigo.png" alt="Indicou, Instalou, Ganhou!" />
+        </div>
+      </div>
+    </section>
+
+    <footer id="contato">
+      <div class="footer-details"></div>
+      <div class="principal-box">
+        <!-- Coluna da esquerda com logo -->
+        <div class="footer-logo">
+          <img src="img/logo-netprimer-branco.png" alt="Logo Netprimer" />
+        </div>
+
+        <!-- Coluna do meio com os links e contatos -->
+        <div class="footer-middle">
+          <div class="top-links">
+            <!-- Pra você -->
+            <div class="footer-col">
+              <h4>Para você</h4>
+              <ul>
+                <li><a href="#">Planos</a></li>
+                <li>
+                  <a href="https://www.brasilbandalarga.com.br/" target="_blank"
+                    >Teste de velocidade</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Redes sociais -->
+            <div class="footer-col">
+              <h4>Siga-nos</h4>
+              <a href="#"
+                ><img
+                  class="img-footer-redes"
+                  src="img/facebook.png"
+                  alt="logo Facebook"
+              /></a>
+              <a href="https://www.instagram.com/netprimer/"
+                ><img
+                  class="img-footer-redes"
+                  src="img/instagram.png"
+                  alt="logo Instagram"
+              /></a>
+              <a href="https://wa.me/5511997047052"
+                ><img
+                  class="img-footer-redes"
+                  src="img/whatsapp.png"
+                  alt="logo whatsapp"
+              /></a>
+            </div>
+          </div>
+
+          <!-- Ficou com alguma dúvida -->
+          <div class="footer-col">
+            <h4 class="duvida">FICOU COM ALGUMA DÚVIDA?</h4>
+            <ul>
+              <li>
+                <a class="informacoes" href="tel:+5511997047052">
+                  <img
+                    class="img-footer"
+                    src="img/call.png"
+                    alt="logo telefone"
+                  />
+                  (11) 99704-7052</a
+                >
+              </li>
+
+              <li>
+                <a class="informacoes" href="https://wa.me/5511997047052"
+                  ><img
+                    class="img-footer"
+                    src="img/whatsapp.png"
+                    alt="logo whatsapp"
+                  />(11) 99704-7052</a
+                >
+              </li>
+              <li>
+                <a class="informacoes" href="mailto:netprimertelecom@gmail.com"
+                  ><img
+                    class="img-footer"
+                    src="img/email.png"
+                    alt="logo email"
+                  />
+                  netprimertelecom@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Endereço à direita -->
+        <div class="footer-address">
+          <h4>Nosso endereço</h4>
+          <p>
+            <img
+              src="img/location.png"
+              alt="icone de localização"
+              width="16px"
+            />
+            Rua Manoel de Freitas - 373
+          </p>
+          <div class="footer-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.340958823578!2d-46.37774858868079!3d-23.412047456036465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8819f89bdca9%3A0x18f52380780eccfc!2sNETPRIMER!5e0!3m2!1spt-BR!2sbr!4v1753816835332!5m2!1spt-BR!2sbr"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="whitee"></div>
+      <div class="desenvolvido">
+        <p>
+          &copy; 2025 | Netprimer Telecom. Todos os direitos reservados.
+          <br />
+          Desenvolvido por
+          <span><a href="" target="_blank">Dayane Araújo</a></span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
