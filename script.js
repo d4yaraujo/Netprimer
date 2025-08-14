@@ -1,12 +1,39 @@
-const menuToggle = document.getElementById('menu-toggle');
-const navItens = document.querySelector('.nav-itens');
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navItens = document.getElementById("nav-itens");
+  const links = navItens.querySelectorAll("a");
 
-if (menuToggle && navItens) {
-  menuToggle.addEventListener('click', () => {
-    navItens.classList.toggle('active');
+  // Abrir/fechar menu ao clicar no toggle
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation(); // evita que o clique no toggle feche o menu imediatamente
+    navItens.classList.toggle("active");
+
+    if (navItens.classList.contains("active")) {
+      menuToggle.classList.add("hidden");
+    } else {
+      menuToggle.classList.remove("hidden");
+    }
   });
-}
 
+  // Fechar menu ao clicar em qualquer link
+  links.forEach(link => {
+    link.addEventListener("click", function() {
+      navItens.classList.remove("active");
+      menuToggle.classList.remove("hidden");
+    });
+  });
+
+  // Fechar menu ao clicar fora do menu
+  document.addEventListener("click", function(e) {
+    if (navItens.classList.contains("active")) {
+      // Se o clique não for no menu nem no toggle
+      if (!navItens.contains(e.target) && !menuToggle.contains(e.target)) {
+        navItens.classList.remove("active");
+        menuToggle.classList.remove("hidden");
+      }
+    }
+  });
+});
 const track = document.querySelector('.carousel-track'); // imagens lado a lado
 const items = document.querySelectorAll('.carousel-item'); // cada slide
 const prev = document.querySelector('.carousel-button.prev'); // botão anterior
@@ -112,3 +139,43 @@ if (track && items.length > 1) {
     track.style.transform = `translateX(${moveX}px)`;
   });
 }
+// Inicia o carrossel no slide 0
+updateCarousel(0);
+
+// Troca automática a cada 5 segundos
+setInterval(() => {
+  updateCarousel(current + 1);
+}, 5000);
+
+function animarEntrada(seletor) {
+    const elementos = document.querySelectorAll(seletor);
+
+    elementos.forEach((el, index) => {
+      // Alterna direção
+      if (index % 2 === 0) {
+        el.classList.add('slide-esquerda');
+      } else {
+        el.classList.add('slide-direita');
+      }
+
+      // Delay progressivo
+      el.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add('visivel');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    elementos.forEach(el => observador.observe(el));
+  }
+
+  // Chama para cada tipo de elemento
+  animarEntrada('.imag');
+  animarEntrada('.card');
+  animarEntrada('.cardp');

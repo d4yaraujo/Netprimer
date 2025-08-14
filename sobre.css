@@ -16,14 +16,41 @@ body {
   background-color: #ffffff;
 }
 
+/* Defina a largura total da barra de rolagem */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Cor de fundo da trilha */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FF9300;
+  /* Cor principal da barra de rolagem */
+  border-radius: 6px;
+  /* Para deixar as pontas arredondadas */
+  border: 1.5px solid #001444;
+  /* Para dar um espaçamento entre o polegar e a trilha */
+}
+
+/* Opcional: Efeitos ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #E07E00;
+  /* Cor ao passar o mouse */
+}
+
 /* NAV CONTAINER */
 .navv {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5%;
+  padding: 1px 5%;
+  padding-top: 10px;
   background: linear-gradient(90deg, #ffbf009f, #ff9300);
   position: relative;
+  z-index: 1000;
 }
 
 /* LOGO */
@@ -75,39 +102,16 @@ body {
 
 /* MENU TOGGLE - escondido em telas grandes */
 .menu-toggle {
+  position: fixed;
   font-size: 1.8rem;
   color: white;
   cursor: pointer;
   display: none;
 }
 
-/* RESPONSIVO */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-itens {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #ff9300;
-    flex-direction: column;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .nav-itens.active {
-    max-height: 300px;
-    /* altura suficiente para mostrar os links */
-  }
-
-  .nav-itens li {
-    text-align: center;
-    padding: 15px 0;
-  }
+.menu-toggle.hidden {
+  display: none;
+  /* Esconde o ícone quando estiver "hidden" */
 }
 
 header {
@@ -132,7 +136,6 @@ header {
 }
 
 .carousel-item img {
-  display: block;
   width: 100%;
   height: 300px;
 }
@@ -182,27 +185,108 @@ header {
 }
 
 @media (max-width: 768px) {
-  .carousel-item img {
-    height: 240px;
-    object-fit: cover;
+  .menu-toggle {
+    display: block;
+    z-index: 2000;
+    position: relative;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+
+  .menu-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  /* Menu lateral (ESTADO INICIAL - ESCONDIDO) */
+  .nav-itens {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(80%, 280px);
+    height: 100vh;
+    background: rgba(255, 147, 0, 0.85);
+    backdrop-filter: blur(12px);
+    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.25);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.5s ease;
+    /* Ajustei a opacidade para ficar mais suave */
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  /* Menu lateral (ESTADO FINAL - VISÍVEL) */
+  .nav-itens.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* O resto das suas regras para 768px... */
+  .texto-sobreposto {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    .menu-toggle {
+      display: block;
+      z-index: 1000;
+      position: relative;
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .texto-sobreposto {
+      display: none;
+    }
+
+    .carousel-item img {
+      height: 200px;
+    }
+
+    section.secao-proposito {
+      padding-top: 30px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .menu-toggle {
+    display: block;
+    z-index: 1000;
+    position: relative;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease;
   }
 
   .texto-sobreposto {
-    position: static;
-    transform: none;
-    color: #001444;
-    max-width: 100%;
-    padding: 20px;
-    text-align: center;
+    display: none;
   }
 
-  .texto-sobreposto h1 {
-    font-size: 1.8em;
+  .carousel-item img {
+    height: 150px;
   }
 
-  .texto-sobreposto p {
-    font-size: 1em;
+  section.secao-proposito {
+    padding-top: 10px;
   }
+}
+
+.nav-itens.active {
+  transform: translateX(0);
+  /* Move o menu para a tela */
+  opacity: 1;
+  /* Torna o menu visível */
 }
 
 .botao-whatsapp-flutuante {
@@ -221,7 +305,8 @@ header {
   overflow: hidden;
   transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out;
   text-decoration: none;
-  z-index: 1000; /* Garante que o botão fique na frente de outros elementos */
+  z-index: 1000;
+  /* Garante que o botão fique na frente de outros elementos */
 }
 
 /* Estado do botão quando o mouse está sobre ele */
@@ -325,7 +410,8 @@ header {
   align-items: center;
   gap: 50px;
   max-width: 1200px;
-  margin: 0 auto; /* Centraliza o conteúdo dentro da seção */
+  margin: 0 auto;
+  /* Centraliza o conteúdo dentro da seção */
 }
 
 /* Estilo da imagem, com largura e margens */
@@ -335,6 +421,7 @@ header {
   display: block;
   flex-shrink: 0;
 }
+
 .imagem-familia img {
   width: 100%;
   height: auto;
@@ -352,11 +439,14 @@ header {
   .imagem-proposito {
     width: 100%;
   }
+
   .imagem-familia {
     width: 100%;
   }
+
   .secao-familias .container-flex {
-    flex-direction: column; /* Empilha o conteúdo em telas pequenas */
+    flex-direction: column;
+    /* Empilha o conteúdo em telas pequenas */
     gap: 30px;
   }
 }
@@ -364,21 +454,26 @@ header {
 footer {
   background-color: #ff9500d8;
   font-family: "Figtree", sans-serif;
-  background-image: repeating-linear-gradient(
-    40deg,
-    /* ângulo da linha */ #00144410,
-    /* cor da linha (com opacidade) */ #0014440a 45px,
-    /* espessura da linha */ transparent 2px,
-    transparent 30px /* espaçamento entre as linhas */
-  );
+  background-image: repeating-linear-gradient(40deg,
+      /* ângulo da linha */
+      #00144410,
+      /* cor da linha (com opacidade) */
+      #0014440a 45px,
+      /* espessura da linha */
+      transparent 2px,
+      transparent 30px
+      /* espaçamento entre as linhas */
+    );
 
   color: #ffffff;
   font-size: 14px;
 }
+
 footer a {
   color: white;
   text-decoration: none;
 }
+
 .footer-details {
   padding: 4px;
   background-color: #001444;
@@ -387,7 +482,8 @@ footer a {
 
 .principal-box {
   display: flex;
-  gap: 80px; /* Espaço entre colunas */
+  gap: 80px;
+  /* Espaço entre colunas */
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -411,6 +507,7 @@ footer a {
   gap: 20px;
   width: 350px;
 }
+
 .top-links {
   display: flex;
   gap: 40px;
@@ -435,6 +532,7 @@ h4 {
   color: #001444;
   margin-bottom: 5px;
 }
+
 .duvida {
   font-size: 20px;
   margin-bottom: 10px;
@@ -449,7 +547,8 @@ h4 {
 .informacoes {
   display: flex;
   align-items: center;
-  gap: 10px; /* Espaço entre ícone e texto */
+  gap: 10px;
+  /* Espaço entre ícone e texto */
   margin-bottom: 10px;
 }
 
@@ -457,6 +556,7 @@ h4 {
   flex: 2;
   max-width: 400px;
 }
+
 .footer-address p {
   display: flex;
   gap: 5px;
@@ -468,6 +568,7 @@ h4 {
   height: 200px;
   border-radius: 8px;
 }
+
 .desenvolvido {
   background-color: #e57e00a1;
   height: 100px;
@@ -482,6 +583,7 @@ h4 {
 .desenvolvido span {
   font-weight: 600;
 }
+
 .whitee {
   width: 100%;
   height: 1px;

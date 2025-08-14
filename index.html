@@ -19,22 +19,34 @@
     </style>
   </head>
   <body>
-   <nav class="navv">
-      <div class="logo">NET<span>PRIMER</span></div>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
+    <nav class="navv">
+      <div ><img src="img/logohorizontalnetprimer.png" alt="" width="150px"></div>
       <ul class="nav-itens" id="nav-itens">
-        <li><a href="#">INÍCIO</a></li>
-        <li><a href="#plan">PLANOS</a></li>
+        <li><a href="index.html#">INÍCIO</a></li>
+        <li><a href="index.html#plan">PLANOS</a></li>
         <li><a href="sobre.html">SOBRE NÓS</a></li>
         <li><a href="#contato">CONTATO</a></li>
       </ul>
+      <div class="menu-toggle" id="menu-toggle" onclick="clickMenu()">☰</div>
     </nav>
 
     <header>
       <div class="carousel">
         <div class="carousel-track">
           <div class="carousel-item active">
-            <img src="img/slideplay.png" alt="Imagem 1" />
+            <picture>
+              <!-- Imagem para telas pequenas -->
+              <source
+                srcset="img/slideplaycell.png"
+                media="(max-width: 768px)"
+              />
+              <!-- Imagem padrão -->
+              <img
+                src="img/slideplay.png"
+                alt="Imagem 1"
+                class="imgslidework"
+              />
+            </picture>
             <div class="conteudo-slide alinha-direita">
               <h2 class="h2tex animacao-texto">
                 DIVERSÃO SEM LIMITES <br />
@@ -54,7 +66,19 @@
           </div>
 
           <div class="carousel-item">
-            <img src="img/slidefriend.png" alt="Imagem 2" />
+            <picture>
+              <!-- Imagem para telas pequenas -->
+              <source
+                srcset="img/slidefriendcell.png"
+                media="(max-width: 768px)"
+              />
+              <!-- Imagem padrão -->
+              <img
+                src="img/slidefriend.png"
+                alt="Imagem 1"
+                class="imgslidework"
+              />
+            </picture>
             <div class="conteudo-slide alinha-esquerda">
               <h2 class="h2texti animacao-texto">
                 RECEBEU ESSA <br />MENSAGEM? ENTÃO VEM!
@@ -73,7 +97,20 @@
           </div>
 
           <div class="carousel-item">
-            <img src="img/slidework.png" alt="Imagem 3" />
+            <picture>
+              <!-- Imagem para telas pequenas -->
+              <source
+                srcset="img/slideworkcell.png"
+                media="(max-width: 768px)"
+              />
+              <!-- Imagem padrão -->
+              <img
+                src="img/slidework.png"
+                alt="Imagem 1"
+                class="imgslidework"
+              />
+            </picture>
+
             <div class="conteudo-slide alinha-direita">
               <h2 class="h2tex animacao-texto">
                 PRODUTIVIDADE COMEÇA <br />COM BOA CONEXÃO!
@@ -93,7 +130,19 @@
           </div>
 
           <div class="carousel-item">
-            <img src="img/slidemusic.png" alt="Imagem 4" />
+            <picture>
+              <!-- Imagem para telas pequenas -->
+              <source
+                srcset="img/slidemusiccell.png"
+                media="(max-width: 768px)"
+              />
+              <!-- Imagem padrão -->
+              <img
+                src="img/slidemusic.png"
+                alt="Imagem 1"
+                class="imgslidework"
+              />
+            </picture>
             <div class="conteudo-slide alinha-esquerda">
               <h2 class="h2texti animacao-texto">
                 A INTERNET QUE<br />TOCA NO SEU RITMO!
@@ -116,11 +165,7 @@
         <button class="carousel-button next">&#10095;</button>
         <div class="carousel-nav">
           <label
-            ><input
-              type="radio"
-              name="carousel-dot"
-              data-index="0"
-              checked
+            ><input type="radio" name="carousel-dot" data-index="0" checked
           /></label>
           <label
             ><input type="radio" name="carousel-dot" data-index="1"
@@ -264,7 +309,9 @@
             </div>
           </div>
 
-          <a href="https://wa.me/5511997047052" class="botao">Saiba mais!</a>
+          <a href="https://wa.me/5511997047052" target="_blank" class="botao"
+            >Saiba mais!</a
+          >
         </div>
       </div>
     </section>
@@ -581,7 +628,7 @@
             <div class="footer-col">
               <h4>Para você</h4>
               <ul>
-                <li><a href="#">Planos</a></li>
+                <li><a href="#plan">Planos</a></li>
                 <li>
                   <a href="https://www.brasilbandalarga.com.br/" target="_blank"
                     >Teste de velocidade</a
@@ -593,19 +640,19 @@
             <!-- Redes sociais -->
             <div class="footer-col">
               <h4>Siga-nos</h4>
-              <a href="#"
+              <a href="https://www.facebook.com/FMultimidia" target="_blank"
                 ><img
                   class="img-footer-redes"
                   src="img/facebook.png"
                   alt="logo Facebook"
               /></a>
-              <a href="https://www.instagram.com/netprimer/"
+              <a href="https://www.instagram.com/netprimer/" target="_blank"
                 ><img
                   class="img-footer-redes"
                   src="img/instagram.png"
                   alt="logo Instagram"
               /></a>
-              <a href="https://wa.me/5511997047052"
+              <a href="https://wa.me/5511997047052" target="_blank"
                 ><img
                   class="img-footer-redes"
                   src="img/whatsapp.png"
@@ -630,7 +677,10 @@
               </li>
 
               <li>
-                <a class="informacoes" href="https://wa.me/5511997047052"
+                <a
+                  class="informacoes"
+                  href="https://wa.me/5511997047052"
+                  target="_blank"
                   ><img
                     class="img-footer"
                     src="img/whatsapp.png"
@@ -639,7 +689,10 @@
                 >
               </li>
               <li>
-                <a class="informacoes" href="mailto:netprimertelecom@gmail.com"
+                <a
+                  class="informacoes"
+                  href="mailto:netprimertelecom@gmail.com"
+                  target="_blank"
                   ><img
                     class="img-footer"
                     src="img/email.png"
@@ -682,7 +735,11 @@
           &copy; 2025 | Netprimer Telecom. Todos os direitos reservados.
           <br />
           Desenvolvido por
-          <span><a href="" target="_blank">Dayane Araújo</a></span>
+          <span
+            ><a href="https://wa.me/5511912958998" target="_blank"
+              >Dayane Araújo</a
+            ></span
+          >
         </p>
       </div>
     </footer>

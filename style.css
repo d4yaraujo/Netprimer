@@ -25,25 +25,36 @@ body {
   width: 100%;
 }
 
+/* Defina a largura total da barra de rolagem */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Cor de fundo da trilha */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FF9300; /* Cor principal da barra de rolagem */
+  border-radius: 6px; /* Para deixar as pontas arredondadas */
+  border: 1.5px solid #001444; /* Para dar um espaçamento entre o polegar e a trilha */
+}
+
+/* Opcional: Efeitos ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #E07E00; /* Cor ao passar o mouse */
+}
+
 /* NAV CONTAINER */
 .navv {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5%;
+  padding: 1px 5%;
+  padding-top: 10px;
   background: linear-gradient(90deg, #ffbf009f, #ff9300);
   position: relative;
-}
-
-/* LOGO */
-.logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: white;
-}
-
-.logo span {
-  color: #ffc107;
+  z-index: 1000;
 }
 
 /* NAV LINKS */
@@ -90,25 +101,98 @@ body {
   display: none;
 }
 
+.menu-toggle.hidden {
+  display: none;
+  /* Esconde o ícone quando estiver "hidden" */
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
+    z-index: 1001;
+    position: relative;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease;
   }
 
+  .menu-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  /* Menu lateral */
   .nav-itens {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     right: 0;
-    background-color: #ff9300;
+    width: min(80%, 280px);
+    height: 100vh;
+
+    /* Aparência moderna (glassmorphism) */
+    background: rgba(255, 147, 0, 0.85);
+    backdrop-filter: blur(12px);
+    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.25);
+
+    /* Efeito inicial (fora da tela e opaco) */
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 1s ease;
+
+    z-index: 1000;
+
+    display: flex;
     flex-direction: column;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    /* espaçamento entre itens */
+    padding: 0 1rem;
   }
 
+  /* Ativo (visível) */
   .nav-itens.active {
-    max-height: 300px;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* Itens da lista */
+  .nav-itens li {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    animation: fadeInUp 0.4s ease forwards;
+  }
+
+  /* Links */
+  .nav-itens a {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 0;
+    display: inline-block;
+    width: 100%;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .nav-itens a:hover {
+    transform: scale(1.05);
+    color: #001444;
+  }
+
+  /* Animação suave dos links */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -123,7 +207,7 @@ header {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   min-height: 400px;
 }
 
@@ -139,6 +223,7 @@ header {
 }
 
 .carousel-item img {
+  display: block;
   width: 100%;
   height: 70vh;
   min-height: 400px;
@@ -224,6 +309,7 @@ header {
   opacity: 0;
   animation: fadeInUp 1s ease forwards;
   max-width: 90%;
+  z-index: 2;
 }
 
 .carousel-item.active .conteudo-slide {
@@ -272,7 +358,8 @@ header {
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   font-size: clamp(0.9rem, 2vw, 1rem);
-  margin-top: 1rem;
+  margin-top: 5px;
+  margin-left: 70%;
   border: 2px solid transparent;
 }
 
@@ -363,7 +450,7 @@ header {
 
   .conteudo-slide {
     max-width: 50%;
-    margin-top: 3%;
+    margin-top: 4%;
   }
 
   .carousel-button {
@@ -411,12 +498,6 @@ header {
     text-align: center;
   }
 
-  /* Melhora a leitura sem o bloco escuro */
-  .carousel h2,
-  .paragraph {
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-  }
-
   .conteudo-slide.alinha-direita,
   .conteudo-slide.alinha-esquerda {
     position: absolute;
@@ -429,14 +510,14 @@ header {
 
   .carousel h2 {
     font-size: clamp(1.3rem, 6vw, 2rem);
-    margin-bottom: 0.8rem;
-    text-align: center;
+    text-align: left;
+    margin-top: 180px;
   }
 
   .paragraph {
     font-size: clamp(0.85rem, 3vw, 1rem);
     margin: 0.8rem 0;
-    text-align: center;
+    text-align: left;
   }
 
   .paragraph br {
@@ -495,20 +576,21 @@ header {
   }
 
   .carousel h2 {
-    font-size: clamp(1.1rem, 7vw, 1.6rem);
+    font-size: 16px;
     margin-bottom: 0.6rem;
     word-spacing: 0.1em;
+    margin-top: 170px;
   }
 
   .paragraph {
-    font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+    font-size: 10px;
     margin: 0.6rem 0;
     line-height: 1.3;
   }
 
   .btn-carousel {
     padding: 0.6rem 1.2rem;
-    font-size: clamp(0.8rem, 3vw, 0.9rem);
+    font-size: 10px;
     margin-top: 0.8rem;
   }
 
@@ -527,39 +609,124 @@ header {
     gap: 0.6rem;
   }
 }
-
-/* Smartphones muito pequenos */
-@media (max-width: 320px) {
-  .carousel {
-    height: 45vh;
-    min-height: 250px;
+@media (max-width: 375px){
+.carousel {
+    height: 50vh;
+    min-height: 280px;
   }
 
   .carousel-item img {
-    height: 45vh;
-    min-height: 250px;
+    height: 60vh;
+    min-height: 280px;
   }
 
   .conteudo-slide {
-    padding: 1rem 0.8rem;
-    margin-top: -20%;
+    padding: 1.1rem 1rem;
+    margin-top: 0;
+    background: none;
+    width: 92%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 25%;
+    transform: translateY(-50%);
   }
 
   .carousel h2 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 12px;
+    word-spacing: 0.1em;
+    margin-top: 100px;
   }
 
   .paragraph {
-    font-size: 0.75rem;
-    margin: 0.5rem 0;
+    font-size: 7px;
+    line-height: 1.3;
+    font-weight: 400;
   }
 
   .btn-carousel {
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 7px;
+    margin-top: 2px;
+  }
+
+  .carousel-button {
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .carousel-nav input {
+    width: 8px;
+    height: 8px;
+  }
+
+  .carousel-nav {
+    gap: 0.6rem;
   }
 }
+/* Smartphones muito pequenos */
+@media (max-width: 320px) {
+  .carousel {
+    height: 50vh;
+    min-height: 280px;
+  }
+
+  .carousel-item img {
+    height: 60vh;
+    min-height: 280px;
+  }
+
+  .conteudo-slide {
+    padding: 1.1rem 1rem;
+    margin-top: 0;
+    background: none;
+    width: 92%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 25%;
+    transform: translateY(-50%);
+  }
+
+  .carousel h2 {
+    font-size: 12px;
+    word-spacing: 0.1em;
+    margin-top: 70px;
+  }
+
+  .paragraph {
+    font-size: 7px;
+    line-height: 1.3;
+  }
+
+  .btn-carousel {
+    padding: 4px;
+    font-size: 6px;
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .carousel-button {
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .carousel-nav input {
+    width: 8px;
+    height: 8px;
+  }
+
+  .carousel-nav {
+    gap: 0.6rem;
+  }
+}
+
 
 /* Telas muito grandes (desktops) */
 @media (min-width: 1400px) {
@@ -577,6 +744,7 @@ header {
     padding: 3px;
     max-width: 40%;
     text-align: left;
+    top: 30%;
   }
 
   .carousel h2 {
@@ -593,7 +761,7 @@ header {
   }
 }
 
-/* Modo paisagem em dispositivos móveis  COMPUTADOR ESSE*/
+/* Modo paisagem em dispositivos móveis*/
 @media (max-height: 500px) and (orientation: landscape) {
   .carousel {
     height: 10vh;
@@ -706,9 +874,11 @@ header {
     border-radius: 50%;
     justify-content: flex-end;
   }
+
   .botao-whatsapp-flutuante:hover .texto-hover {
     opacity: 0;
   }
+
   .texto-hover {
     display: none;
   }
@@ -779,7 +949,27 @@ header {
   font-size: 16px;
   color: #333;
 }
+/*ANIMAÇÃO COM JS PARA OS ITENS SAIREM DA LATERAL PARA A POSIÇÃO*/
+.imag, .card, .cardp {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
 
+/* Sai da esquerda */
+.slide-esquerda {
+  transform: translateX(-50px);
+}
+
+/* Sai da direita */
+.slide-direita {
+  transform: translateX(50px);
+}
+
+/* Quando aparece na tela */
+.visivel {
+  transform: translateX(0);
+  opacity: 1;
+}
 @media (max-width: 768px) {
   .cards {
     flex-direction: column;
@@ -991,9 +1181,12 @@ h2 {
 
 @media (max-width: 480px) {
   .podetudo h2 {
-    margin-bottom: 24px;
-    font-size: clamp(1.1rem, 5.5vw, 1.4rem);
+    margin-bottom: 30px;
+    font-size: 25px;
+    padding-bottom: 20px;
+    padding-top: 40px;
   }
+
   .internet-para {
     margin: 0 15px;
     padding: 15px 5px;
@@ -1002,7 +1195,7 @@ h2 {
   }
 
   .imag {
-    width: 85%;
+    width: 75%;
     /* uma coluna */
     height: auto;
     aspect-ratio: 172 / 310;
@@ -1015,9 +1208,9 @@ h2 {
   }
 
   .internet-para h2 {
-    font-size: 20px;
+    font-size: 30px;
     margin-top: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 }
 
@@ -1128,6 +1321,7 @@ h2 {
   max-width: 900px;
   margin: 0 auto 40px;
 }
+
 
 .plan-header {
   background-color: #ff9300;
@@ -1360,8 +1554,8 @@ h2 {
 
 @media (max-width: 480px) {
   .h2-plan {
-    padding-top: 40px;
-    font-size: 18px;
+    padding-top: 90px;
+    font-size: 25px;
     margin-bottom: 25px;
   }
 
@@ -1389,6 +1583,21 @@ h2 {
 
   .btn {
     padding: 10px 30px;
+  }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  .pricing-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 20px;
+  }
+
+  .plan {
+    flex: 1 1 220px; /* largura mínima, mas deixa crescer */
+    max-width: 240px; /* limite máximo */
+    height: auto;
+    margin-right: 0;
   }
 }
 
@@ -1488,6 +1697,7 @@ h2 {
     height: auto;
     padding: 40px 20px;
   }
+
   .container-convite {
     flex-direction: column;
     text-align: center;
@@ -1687,14 +1897,17 @@ h2 {
     bottom: 12px;
     right: 12px;
   }
+
   .icone-whatsapp {
     width: 52px;
     height: 52px;
   }
+
   .botao-whatsapp-flutuante img {
     width: 30px;
     height: 30px;
   }
+
   .backgroundorange {
     height: auto;
     /* deixa a altura automática */
@@ -1799,13 +2012,16 @@ h2 {
 footer {
   background-color: #ff9500d8;
   font-family: "Figtree", sans-serif;
-  background-image: repeating-linear-gradient(
-    40deg,
-    /* ângulo da linha */ #00144410,
-    /* cor da linha (com opacidade) */ #0014440a 45px,
-    /* espessura da linha */ transparent 2px,
-    transparent 30px /* espaçamento entre as linhas */
-  );
+  background-image: repeating-linear-gradient(40deg,
+      /* ângulo da linha */
+      #00144410,
+      /* cor da linha (com opacidade) */
+      #0014440a 45px,
+      /* espessura da linha */
+      transparent 2px,
+      transparent 30px
+      /* espaçamento entre as linhas */
+    );
 
   color: #ffffff;
   font-size: 14px;
