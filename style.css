@@ -620,7 +620,7 @@ header {
     min-height: 280px;
   }
 
-  .conteudo-slide {
+  .conteudo-slide { 
     padding: 1.1rem 1rem;
     margin-top: 0;
     background: none;
